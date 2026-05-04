@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>홍석희 AI 파트너 | 헤럴드경제</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Malgun Gothic', '맑은 고딕', AppleGothic, sans-serif;
+      background: #eef0f3;
+      color: #1a1a1a;
+      min-height: 100vh;
+    }
+
+    /* ── 헤더 ── */
+    .header {
+      background: #c0001e;
+      color: white;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    .header-left { display: flex; align-items: center; gap: 14px; }
+    .header-logo {
+      font-size: 11px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      border: 1px solid rgba(255,255,255,0.6);
+      padding: 3px 8px;
+      border-radius: 3px;
+      opacity: 0.9;
+    }
+    .header-title { font-size: 20px; font-weight: bold; letter-spacing: -0.5px; }
+    .header-sub { font-size: 11px; opacity: 0.75; margin-top: 2px; }
+    .header-badge {
+      background: rgba(255,255,255,0.2);
+      border-radius: 20px;
+      padding: 4px 12px;
+      font-size: 12px;
+    }
+
+    /* ── 네비게이션 ── */
+    .nav {
+      background: #1c1c1c;
+      display: flex;
+      overflow-x: auto;
+      border-bottom: 1px solid #333;
+    }
+    .nav::-webkit-scrollbar { display: none; }
+    .nav-btn {
+      background: none;
+      border: none;
+      color: #999;
+      padding: 13px 22px;
+      cursor: pointer;
+      font-size: 13px;
+      font-family: inherit;
+      white-space: nowrap;
+      border-bottom: 3px solid transparent;
+      transition: all 0.15s;
+    }
+    .nav-btn.active { color: #fff; border-bottom-color: #c0001e; }
+    .nav-btn:hover:not(.active) { color: #ddd; background: rgba(255,255,255,0.05); }
+
+    /* ── 본문 ── */
+    .main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 24px 16px 48px;
+    }
+
+    /* ── 카드 ── */
+    .card {
+      background: white;
+      border-radius: 10px;
+      padding: 24px;
+      margin-bottom: 20px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.09);
+    }
+    .card-title {
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #c0001e;
+      color: #111;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* ── 폼 요소 ── */
+    label.field-label {
+      display: block;
+      font-size: 13px;
+      font-weight: bold;
+      color: #444;
+      margin-bottom: 6px;
+    }
+    .field-wrap { margin-bottom: 16px; }
+    textarea, input[type="text"], select {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1px solid #ddd;
+      border-radius: 7px;
+      font-size: 14px;
+      font-family: inherit;
+      color: #1a1a1a;
+      background: #fafafa;
+      transition: border-color 0.15s;
+    }
+    textarea { resize: vertical; min-height: 100px; line-height: 1.6; }
+    textarea:focus, input[type="text"]:focus, select:focus {
+      outline: none;
+      border-color: #c0001e;
+      background: #fff;
+    }
+
+    /* ── 버튼 ── */
+    .btn {
+      background: #c0001e;
+      color: white;
+      border: none;
+      padding: 11px 22px;
+      border-radius: 7px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: bold;
+      font-family: inherit;
+      transition: background 0.15s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn:hover:not(:disabled) { background: #a30019; }
+    .btn:disabled { background: #bbb; cursor: not-allowed; }
+    .btn-ghost {
+      background: none;
+      color: #666;
+      border: 1px solid #ddd;
+      padding: 8px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 13px;
+      font-family: inherit;
+      transition: all 0.15s;
+    }
+    .btn-ghost:hover { background: #f0f0f0; }
+
+    /* ── 태그 ── */
+    .tags-wrap { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+    .tag {
+      display: inline-block;
+      background: #f2f2f2;
+      border: 1.5px solid #ddd;
+      border-radius: 20px;
+      padding: 5px 13px;
+      font-size: 12px;
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.15s;
+      color: #555;
+    }
+    .tag:hover { background: #e8e8e8; }
+    .tag.on { background: #c0001e; border-color: #c0001e; color: white; }
+
+    /* ── 인포 박스 ── */
+    .info-box {
+      background: #fff8f0;
+      border-left: 4px solid #c0001e;
+      padding: 10px 14px;
+      border-radius: 0 7px 7px 0;
+      font-size: 13px;
+      color: #666;
+      margin-bottom: 18px;
+      line-height: 1.6;
+    }
+
+    /* ── 출력 영역 ── */
+    .output-box {
+      background: #f7f8fa;
+      border: 1px solid #e0e3e8;
+      border-radius: 8px;
+      padding: 18px;
+      margin-top: 16px;
+      font-size: 14px;
+      line-height: 1.9;
+      white-space: pre-wrap;
+      word-break: keep-all;
+      min-height: 60px;
+      display: none;
+      position: relative;
+    }
+    .output-box.visible { display: block; }
+
+    /* 복사 버튼 */
+    .copy-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(255,255,255,0.9);
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 4px 10px;
+      font-size: 12px;
+      cursor: pointer;
+      font-family: inherit;
+      color: #555;
+    }
+    .copy-btn:hover { background: #f0f0f0; }
+
+    /* ── 로딩 스피너 ── */
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .spinner {
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      border: 2px solid #ddd;
+      border-top-color: #c0001e;
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      flex-shrink: 0;
+    }
+
+    /* ── 스타일 가이드 탭 ── */
+    .guide-section { margin-bottom: 24px; }
+    .guide-section h3 {
+      font-size: 15px;
+      color: #c0001e;
+      margin-bottom: 12px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #f0d0d0;
+    }
+    .guide-item {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+      font-size: 14px;
+      line-height: 1.7;
+      align-items: flex-start;
+    }
+    .guide-num {
+      background: #c0001e;
+      color: white;
+      border-radius: 50%;
+      width: 22px;
+      height: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .example-box {
+      background: #f7f8fa;
+      border-left: 3px solid #c0001e;
+      padding: 8px 14px;
+      margin: 6px 0 10px 32px;
+      font-size: 13px;
+      color: #555;
+      border-radius: 0 5px 5px 0;
+      font-style: italic;
+    }
+
+    /* ── 반응형 ── */
+    @media (max-width: 600px) {
+      .header { padding: 12px 16px; }
+      .header-title { font-size: 17px; }
+      .header-badge { display: none; }
+      .main { padding: 16px 12px 40px; }
+      .card { padding: 18px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════ 헤더 ══════════════ -->
+<header class="header">
+  <div class="header-left">
+    <span class="header-logo">헤럴드경제</span>
+    <div>
+      <div class="header-title">홍석희 AI 파트너</div>
+      <div class="header-sub">홍석희 기자 스타일 기사 작성 도우미</div>
+    </div>
+  </div>
+  <span class="header-badge">🤖 AI 브레인</span>
+</header>
+
+<!-- ══════════════ 네비게이션 ══════════════ -->
+<nav class="nav">
+  <button class="nav-btn active" onclick="showTab('pitch', this)">📌 발제 생성</button>
+  <button class="nav-btn" onclick="showTab('article', this)">✍️ 기사 초안</button>
+  <button class="nav-btn" onclick="showTab('title', this)">📰 제목 메이커</button>
+  <button class="nav-btn" onclick="showTab('style', this)">🧭 내 스타일</button>
+</nav>
+
+<!-- ══════════════ 본문 ══════════════ -->
+<main class="main">
+
+  <!-- ── TAB 1: 발제 생성 ── -->
+  <div id="tab-pitch">
+    <div class="card">
+      <div class="card-title">📌 발제 생성</div>
+      <div class="info-box">
+        홍석희 기자 특유의 각도로 기사 아이템을 발굴합니다. 키워드 없이도 오늘의 발제를 바로 생성할 수 있습니다.
+      </div>
+
+      <div class="field-wrap">
+        <label class="field-label">관심 키워드 또는 이슈 <span style="color:#999;font-weight:normal;">(없으면 비워두세요)</span></label>
+        <input type="text" id="pitch-keyword" placeholder="예: 미국 관세, 부동산 PF, 의대 증원, 탄소세...">
+      </div>
+
+      <div class="field-wrap">
+        <label class="field-label">발굴 방식 선택 <span style="color:#999;font-weight:normal;">(복수 선택 가능)</span></label>
+        <div class="tags-wrap">
+          <span class="tag" data-tag="compare" onclick="toggleTag(this)">🌏 국제 비교</span>
+          <span class="tag" data-tag="myth" onclick="toggleTag(this)">💥 오개념 교정</span>
+          <span class="tag" data-tag="history" onclick="toggleTag(this)">📜 역사 맥락</span>
+          <span class="tag" data-tag="stat" onclick="toggleTag(this)">📊 통계 뒤집기</span>
+          <span class="tag" data-tag="parallel" onclick="toggleTag(this)">🔄 병렬 구조</span>
+          <span class="tag" data-tag="thirdworld" onclick="toggleTag(this)">🌍 제3세계 시각</span>
+          <span class="tag" data-tag="korea-only" onclick="toggleTag(this)">🇰🇷 한국만의 것</span>
+          <span class="tag" data-tag="structure" onclick="toggleTag(this)">🏗️ 구조적 비판</span>
+        </div>
+      </div>
+
+      <div class="field-wrap">
+        <label class="field-label">발제 개수</label>
+        <select id="pitch-count" style="width:auto;min-width:120px;">
+          <option value="3">3개</option>
+          <option value="5" selected>5개</option>
+          <option value="7">7개</option>
+        </select>
+      </div>
+
+      <button class="btn" id="pitch-btn" onclick="generatePitch()">🔍 발제 생성하기</button>
+
+      <div class="output-box" id="pitch-output">
+        <button class="copy-btn" onclick="copyOutput('pitch-output')">복사</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── TAB 2: 기사 초안 ── -->
+  <div id="tab-article" style="display:none">
+    <div class="card">
+      <div class="card-title">✍️ 기사 초안 작성</div>
+      <div class="info-box">
+        발제나 핵심 내용을 입력하면 홍석희 스타일로 기사 초안을 작성합니다. 반직관적 첫 문장, 구체적 수치, 강렬한 마무리가 특징입니다.
+      </div>
+
+      <div class="field-wrap">
+        <label class="field-label">발제 / 핵심 내용 <span style="color:#c0001e;">*</span></label>
+        <textarea id="article-prompt" rows="4" placeholder="예: 한국은 전 세계에서 유일하게 쓰레기를 버리기 위해 돈을 내는 나라다. 1995년 종량제 도입 이후 26년째 국민이 쓰레기 처리비를 갹출하는 구조가 지속되고 있다..."></textarea>
+      </div>
+
+      <div class="field-wrap">
+        <label class="field-label">참고 자료 <span style="color:#999;font-weight:normal;">(통계, 공시, 과거 수치, 비교 대상 등 — 선택)</span></label>
+        <textarea id="article-ref" rows="3" placeholder="예: 2019년 쓰레기 봉투 생산량 12억2000만장 / 봉투 판매 수입 6792억원 (환경부, 2020년 12월) / 세계 재활용률 1위..."></textarea>
+      </div>
+
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:16px;">
+        <div>
+          <label class="field-label">기사 길이</label>
+          <select id="article-length" style="width:auto;min-width:140px;">
+            <option value="short">짧게 (500자 내외)</option>
+            <option value="medium" selected>보통 (800~1000자)</option>
+            <option value="long">길게 (1200~1500자)</option>
+          </select>
+        </div>
+        <div>
+          <label class="field-label">기사 유형</label>
+          <select id="article-type" style="width:auto;min-width:150px;">
+            <option value="column">칼럼·시각 (현장에서)</option>
+            <option value="news" selected>스트레이트 뉴스</option>
+            <option value="analysis">분석 기사</option>
+          </select>
+        </div>
+      </div>
+
+      <button class="btn" id="article-btn" onclick="generateArticle()">📝 기사 초안 생성</button>
+
+      <div class="output-box" id="article-output">
+        <button class="copy-btn" onclick="copyOutput('article-output')">복사</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── TAB 3: 제목 메이커 ── -->
+  <div id="tab-title" style="display:none">
+    <div class="card">
+      <div class="card-title">📰 제목 메이커</div>
+      <div class="info-box">
+        기사 본문을 붙여넣으면 헤럴드경제 스타일 제목 5개를 제안합니다. 클릭을 유도하되 본문 외 사실·과장·단정 표현은 배제합니다.
+      </div>
+
+      <div class="field-wrap">
+        <label class="field-label">기사 본문 <span style="color:#c0001e;">*</span></label>
+        <textarea id="title-input" rows="8" placeholder="기사 본문을 붙여넣으세요..."></textarea>
+      </div>
+
+      <div class="field-wrap">
+        <label class="field-label">제목 스타일 선택</label>
+        <div class="tags-wrap">
+          <span class="tag on" data-tag2="question" onclick="toggleTag2(this)">❓ 의문형</span>
+          <span class="tag on" data-tag2="shock" onclick="toggleTag2(this)">⚡ 충격·반전</span>
+          <span class="tag" data-tag2="stat" onclick="toggleTag2(this)">📊 수치 강조</span>
+          <span class="tag" data-tag2="compare" onclick="toggleTag2(this)">↔️ 비교 대조</span>
+          <span class="tag" data-tag2="irony" onclick="toggleTag2(this)">🙃 역설·아이러니</span>
+        </div>
+      </div>
+
+      <button class="btn" id="title-btn" onclick="generateTitles()">💡 제목 5개 생성</button>
+
+      <div class="output-box" id="title-output">
+        <button class="copy-btn" onclick="copyOutput('title-output')">복사</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── TAB 4: 내 스타일 ── -->
+  <div id="tab-style" style="display:none">
+    <div class="card">
+      <div class="card-title">🧭 홍석희 기자 글쓰기 원칙</div>
+
+      <div class="guide-section">
+        <h3>아이템 발굴 방식 6가지</h3>
+
+        <div class="guide-item">
+          <span class="guide-num">1</span>
+          <div><strong>'한국만의 것' 찾기</strong> — 전 세계에서 한국만 하는 관행·제도를 찾아 "왜 다른 나라는 안 할까?"를 묻는다</div>
+        </div>
+        <div class="example-box">"세계 각국 가운데 한국처럼 쓰레기 봉투를 사서 쓰고 버리는 나라는 없다" / "대입 때문에 증시 개장을 늦추는 나라는 한국이 유일한 것으로 안다"</div>
+
+        <div class="guide-item">
+          <span class="guide-num">2</span>
+          <div><strong>오개념 교정</strong> — 대중이 잘못 알고 있는 상식을 통계·사실로 뒤집는다</div>
+        </div>
+        <div class="example-box">"아프리카는 덥지 않다" (나이로비 7월 최고기온 20.6도) / "우리가 부르는 독수리 대부분은 사실 벌처(사체 청소부)다"</div>
+
+        <div class="guide-item">
+          <span class="guide-num">3</span>
+          <div><strong>비교·병렬 구조</strong> — 시대·지역이 다른 두 사건을 병렬로 놓아 공통 구조를 드러낸다</div>
+        </div>
+        <div class="example-box">한국 베트남 파병(1964~73년) ↔ 북한 러시아 파병 — "체제는 달라도 생존 논리는 같다"</div>
+
+        <div class="guide-item">
+          <span class="guide-num">4</span>
+          <div><strong>통계로 뒤집기</strong> — 상식과 반대되는 숫자를 발굴한다</div>
+        </div>
+        <div class="example-box">아이티 지진 구호금 94억 달러 → 현지 단체 직접 전달 비율 0.6% / "100원에 한 끼"의 함정</div>
+
+        <div class="guide-item">
+          <span class="guide-num">5</span>
+          <div><strong>역사 맥락 현재 접목</strong> — 과거 사건을 현재 문제의 뼈대로 쓴다</div>
+        </div>
+        <div class="example-box">볼리비아-칠레 태평양 전쟁(1880년대) → 현재 남미 갈등의 원인 / 전두환 사망 → 역사적 응징의 의미</div>
+
+        <div class="guide-item">
+          <span class="guide-num">6</span>
+          <div><strong>제3세계·약소국 눈높이</strong> — 강대국 논리가 아닌 약소국 구조로 국제 정치를 분석한다</div>
+        </div>
+        <div class="example-box">네팔-인도, 라오스-태국, 키프로스-터키-그리스 관계 → "이웃 나라끼리 사이가 좋은 예는 드물다"</div>
+      </div>
+
+      <div class="guide-section">
+        <h3>글쓰기 스타일</h3>
+        <div class="guide-item"><span class="guide-num">▸</span><div><strong>반직관적 첫 문장</strong> — 독자 예상을 깨는 선언으로 시작한다</div></div>
+        <div class="guide-item"><span class="guide-num">▸</span><div><strong>짧고 강한 문장 연속 배치</strong> — 호흡을 짧게 끊어 리듬을 만든다</div></div>
+        <div class="guide-item"><span class="guide-num">▸</span><div><strong>구체적 연도·인명·숫자</strong> — 추상 대신 팩트를 넣는다</div></div>
+        <div class="guide-item"><span class="guide-num">▸</span><div><strong>개인 경험을 논거로</strong> — 케냐 사파리, 인도 가사도우미 소년 등 직접 목격을 증거로 쓴다</div></div>
+        <div class="guide-item"><span class="guide-num">▸</span><div><strong>마지막 문장이 핵심</strong> — 칼럼 결미에 메시지를 응축한다 ("지(知)는 무지(無知)의 자각 상태다")</div></div>
+      </div>
+
+      <div class="guide-section">
+        <h3>기사 형식 규칙</h3>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:13px;line-height:1.8;">
+          <div>✅ 첫머리: [헤럴드경제=홍석희 기자]</div>
+          <div>✅ 숫자: 콤마 제거, 한글 단위 혼용 (1만3000)</div>
+          <div>✅ 추가 취재·통계·역사 맥락 1개 이상 반영</div>
+          <div>✅ 솔루션 → 설루션</div>
+          <div>❌ 전망·추정을 확정처럼 표현 금지</div>
+          <div>❌ 보도자료 단순 재작성 금지</div>
+          <div>❌ 마크다운 서식 사용 금지</div>
+          <div>❌ 「」→ 홑따옴표 ' ' 사용</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<script>
+// ════════════════════════════════════════
+// 홍석희 기자 AI 페르소나 (분석 기반)
+// ════════════════════════════════════════
+const HONG_PERSONA = `당신은 헤럴드경제 홍석희 기자입니다. 다음은 당신의 사고방식과 글쓰기 스타일 전체입니다.
+
+[아이템 발굴 6가지 원칙]
+1. '한국만의 것' 찾기 – "전 세계에서 대한민국만..." 관행을 찾아 구조적 원인을 묻는다. (예: 수능날 증시 개장 연기, 쓰레기 종량제 봉투)
+2. 오개념 교정 – 대중이 잘못 알고 있는 상식을 통계·사실로 뒤집는다. (예: "아프리카는 덥지 않다" - 나이로비 적도 도시인데도 7월 최고기온 20.6도 / 독수리와 벌처는 전혀 다른 새)
+3. 비교·병렬 구조 – 시대·지역이 다른 두 사건에서 공통 구조를 드러낸다. (예: 한국 베트남 파병 ↔ 북한 러시아 파병은 "체제는 달라도 논리는 같다")
+4. 통계로 뒤집기 – 상식과 반대되는 숫자를 발굴한다. (예: 아이티 지진 94억 달러 구호금 중 현지 단체 직접 전달 0.6%)
+5. 역사 맥락 현재 접목 – 과거 사건을 현재 이슈의 뼈대로 쓴다.
+6. 제3세계·약소국 눈높이 – 강대국 논리 대신 약소국 구조로 국제 정치를 분석한다. (볼리비아-칠레, 네팔-인도, 라오스-태국, 키프로스 사례)
+
+[글쓰기 스타일]
+- 첫 문장은 반직관적 선언으로 시작한다: "아프리카는 덥지 않다" / "죽음과 관련된 의례는 죽은 사람을 위한 것이 아니다" / "싸우지 말자. 죽이지 말자. 그냥 겨루자."
+- 짧고 강한 문장을 연속 배치해 리듬을 만든다. 길고 복잡한 문장을 피한다.
+- 구체적 연도, 인명, 숫자를 반드시 넣는다. (예: "1964년부터 1973년까지 연인원 약 32만명", "2019년 한해 생산된 쓰레기 봉투 수량 12억2000만장")
+- 개인 경험이나 직접 취재를 논거로 쓴다. (예: "몇해 전 휴가를 내고 케냐 마사이마라 국립공원 사파리를 위해 갔을 때", "기자가 인도에서 직접 봤던 가사도우미 네팔 소년")
+- 마지막 문장에 핵심 메시지를 응축한다: "지(知)는 무지(無知)의 자각 상태다" / "가해자의 반성과 사과 없이는 피해자의 용서와 화해도 없다" / "오늘의 사건은 내일의 역사다"
+- 단호하고 직접적이다. 불필요한 수사어구 없음.
+
+[기사 형식 규칙]
+- 첫머리: [헤럴드경제=홍석희 기자]
+- 숫자 콤마 제거·한글 단위 혼용 (1만3000, '1만3천' 금지)
+- 전망·추정은 확정처럼 쓰지 않는다
+- 보도자료 단순 재작성 금지 – 추가 취재·공시·통계·역사 맥락·업계 비교 중 1개 이상 반영
+- 제목: 클릭 유도하되 본문 외 사실·과장·단정 표현 금지
+- 마크다운 서식 없는 정제된 기사체
+- 솔루션 → 설루션 (고유명사 포함 시 첫머리 표시)
+- 「」→ 홑따옴표 ' '`;
+
+// ════════════════════════════════════════
+// 상태 관리
+// ════════════════════════════════════════
+const activeTags = new Set();
+const activeTags2 = new Set(['question', 'shock']);
+
+function toggleTag(el) {
+  const tag = el.dataset.tag;
+  if (activeTags.has(tag)) { activeTags.delete(tag); el.classList.remove('on'); }
+  else { activeTags.add(tag); el.classList.add('on'); }
+}
+
+function toggleTag2(el) {
+  const tag = el.dataset.tag2;
+  if (activeTags2.has(tag)) { activeTags2.delete(tag); el.classList.remove('on'); }
+  else { activeTags2.add(tag); el.classList.add('on'); }
+}
+
+// ════════════════════════════════════════
+// 탭 전환
+// ════════════════════════════════════════
+function showTab(tab, btn) {
+  document.querySelectorAll('[id^="tab-"]').forEach(el => el.style.display = 'none');
+  document.querySelectorAll('.nav-btn').forEach(el => el.classList.remove('active'));
+  document.getElementById('tab-' + tab).style.display = 'block';
+  btn.classList.add('active');
+}
+
+// ════════════════════════════════════════
+// 스트리밍 API 호출
+// ════════════════════════════════════════
+async function streamResponse(messages, systemPrompt, outputId, btnId) {
+  const outputEl = document.getElementById(outputId);
+  const btnEl = document.getElementById(btnId);
+
+  outputEl.classList.add('visible');
+  // spinner 유지하며 이전 텍스트 지우기
+  const textNode = document.createTextNode('');
+  const spinner = document.createElement('span');
+  spinner.className = 'spinner';
+
+  // 복사 버튼 보존
+  const copyBtn = outputEl.querySelector('.copy-btn');
+  outputEl.innerHTML = '';
+  outputEl.appendChild(spinner);
+  outputEl.appendChild(document.createTextNode(' 생성 중...'));
+  if (copyBtn) outputEl.appendChild(copyBtn);
+
+  btnEl.disabled = true;
+
+  try {
+    const res = await fetch('/api/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ messages, systemPrompt }),
+    });
+
+    if (!res.ok) {
+      const errText = await res.text();
+      let errMsg;
+      try { errMsg = JSON.parse(errText).error; } catch { errMsg = errText; }
+      throw new Error(errMsg || `HTTP ${res.status}`);
+    }
+
+    // 스피너 제거, 텍스트 노드 추가
+    outputEl.innerHTML = '';
+    if (copyBtn) outputEl.appendChild(copyBtn);
+    const content = document.createTextNode('');
+    outputEl.appendChild(content);
+
+    const reader = res.body.getReader();
+    const decoder = new TextDecoder();
+    let buffer = '';
+
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      buffer += decoder.decode(value, { stream: true });
+      const lines = buffer.split('\n');
+      buffer = lines.pop();
+
+      for (const line of lines) {
+        if (!line.startsWith('data: ')) continue;
+        const data = line.slice(6).trim();
+        if (data === '[DONE]') continue;
+        try {
+          const parsed = JSON.parse(data);
+          if (parsed.type === 'content_block_delta' && parsed.delta?.text) {
+            content.textContent += parsed.delta.text;
+          }
+        } catch {}
+      }
+    }
+
+    // 남은 버퍼 처리
+    if (buffer.startsWith('data: ')) {
+      try {
+        const parsed = JSON.parse(buffer.slice(6));
+        if (parsed.type === 'content_block_delta' && parsed.delta?.text) {
+          content.textContent += parsed.delta.text;
+        }
+      } catch {}
+    }
+
+  } catch (err) {
+    outputEl.innerHTML = '';
+    if (copyBtn) outputEl.appendChild(copyBtn);
+    outputEl.appendChild(document.createTextNode(
+      `⚠️ 오류가 발생했습니다.\n\n${err.message}\n\n` +
+      `SETUP.md의 설정 가이드를 확인하거나, Vercel 환경변수에 ANTHROPIC_API_KEY가 올바르게 설정됐는지 확인하세요.`
+    ));
+  } finally {
+    btnEl.disabled = false;
+  }
+}
+
+// ════════════════════════════════════════
+// 발제 생성
+// ════════════════════════════════════════
+function generatePitch() {
+  const keyword = document.getElementById('pitch-keyword').value.trim();
+  const count = document.getElementById('pitch-count').value;
+
+  const tagLabelMap = {
+    compare: '국제 비교 각도',
+    myth: '오개념 교정 각도',
+    history: '역사 맥락 접목',
+    stat: '통계 뒤집기',
+    parallel: '병렬 구조 (시대·지역 다른 두 사건 연결)',
+    thirdworld: '제3세계·약소국 시각',
+    'korea-only': '한국만의 것 찾기',
+    structure: '구조적 비판',
+  };
+
+  const methodStr = activeTags.size > 0
+    ? `\n\n선호 발굴 방식: ${[...activeTags].map(t => tagLabelMap[t]).join(', ')}`
+    : '';
+
+  const prompt = keyword
+    ? `키워드 '${keyword}'를 바탕으로 홍석희 기자 스타일 기사 발제 ${count}개를 생성하세요.${methodStr}\n\n각 발제는 반드시 다음 형식으로:\n\n[발제 N]\n제목 후보: (클릭 유도, 과장 없이)\n핵심 각도: (왜 이 시각이 새로운가)\n첫 문장 제안: (반직관적 선언)\n추가 취재 포인트: (어디서 팩트를 더 캘 수 있나)`
+    : `오늘(2026년 5월) 헤럴드경제에서 쓸 수 있는 홍석희 기자 스타일 기사 발제 ${count}개를 생성하세요. 최근 국내외 이슈를 반영하되 홍석희 기자 특유의 날카로운 각도를 살려주세요.${methodStr}\n\n각 발제는 반드시 다음 형식으로:\n\n[발제 N]\n제목 후보: (클릭 유도, 과장 없이)\n핵심 각도: (왜 이 시각이 새로운가)\n첫 문장 제안: (반직관적 선언)\n추가 취재 포인트: (어디서 팩트를 더 캘 수 있나)`;
+
+  streamResponse(
+    [{ role: 'user', content: prompt }],
+    HONG_PERSONA + '\n\n지금 편집회의에서 발제하는 중입니다. 날카롭고 독창적인 홍석희 기자답게 발제하세요.',
+    'pitch-output',
+    'pitch-btn'
+  );
+}
+
+// ════════════════════════════════════════
+// 기사 초안
+// ════════════════════════════════════════
+function generateArticle() {
+  const prompt = document.getElementById('article-prompt').value.trim();
+  if (!prompt) { alert('발제 또는 핵심 내용을 입력해주세요.'); return; }
+
+  const ref = document.getElementById('article-ref').value.trim();
+  const length = document.getElementById('article-length').value;
+  const type = document.getElementById('article-type').value;
+
+  const lengthMap = { short: '500자 내외', medium: '800~1000자', long: '1200~1500자' };
+  const typeMap = {
+    column: '칼럼·시각 형식 ([홍석희의 현장에서] 또는 [팀장시각] 스타일)',
+    news: '스트레이트 뉴스 형식',
+    analysis: '분석 기사 형식',
+  };
+
+  const userMsg = `다음 내용으로 기사를 작성해주세요.\n\n발제/핵심 내용:\n${prompt}` +
+    (ref ? `\n\n참고 자료 (반드시 활용):\n${ref}` : '') +
+    `\n\n분량: ${lengthMap[length]}\n유형: ${typeMap[type]}`;
+
+  streamResponse(
+    [{ role: 'user', content: userMsg }],
+    HONG_PERSONA + '\n\n지금 기사를 직접 작성합니다. [헤럴드경제=홍석희 기자]로 시작하고, 반직관적 첫 문장으로 독자를 잡아끌며, 마지막 문장에 핵심 메시지를 응축하세요.',
+    'article-output',
+    'article-btn'
+  );
+}
+
+// ════════════════════════════════════════
+// 제목 메이커
+// ════════════════════════════════════════
+function generateTitles() {
+  const body = document.getElementById('title-input').value.trim();
+  if (!body) { alert('기사 본문을 입력해주세요.'); return; }
+
+  const styleLabelMap = {
+    question: '의문형',
+    shock: '충격·반전',
+    stat: '수치 강조',
+    compare: '비교 대조',
+    irony: '역설·아이러니',
+  };
+
+  const styleStr = activeTags2.size > 0
+    ? `\n선호 스타일: ${[...activeTags2].map(t => styleLabelMap[t]).join(', ')}`
+    : '';
+
+  const userMsg = `다음 기사 본문에 맞는 제목 5개를 제안해주세요.\n\n규칙:\n- 클릭을 유도하되 본문에 없는 사실이나 과장 금지\n- 전망·추정을 확정처럼 표현 금지\n- 단정 표현 금지\n- 헤럴드경제 기사 제목 스타일${styleStr}\n\n각 제목 앞에 번호와 한 줄 선택 이유를 달아주세요.\n\n기사 본문:\n${body}`;
+
+  streamResponse(
+    [{ role: 'user', content: userMsg }],
+    HONG_PERSONA + '\n\n지금 기사 제목을 제안하는 편집자입니다. 헤럴드경제 독자를 잡아끄는 제목을 만드세요.',
+    'title-output',
+    'title-btn'
+  );
+}
+
+// ════════════════════════════════════════
+// 복사
+// ════════════════════════════════════════
+function copyOutput(id) {
+  const el = document.getElementById(id);
+  const text = el.textContent.replace('복사', '').trim();
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = el.querySelector('.copy-btn');
+    const orig = btn.textContent;
+    btn.textContent = '✅ 복사됨';
+    setTimeout(() => { btn.textContent = orig; }, 1500);
+  });
+}
+</script>
+</body>
+</html>
