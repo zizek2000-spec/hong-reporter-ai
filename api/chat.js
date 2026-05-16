@@ -43,6 +43,7 @@ export default async function handler(req) {
     body: JSON.stringify({
       model: 'claude-sonnet-4-6',
       max_tokens: 4096,
+      temperature: 1.0,
       stream: true,
       system: systemPrompt,
       messages,
