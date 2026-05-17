@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title> ë°ì ê°ì ì¼ìë¬ | ë°ì ë§ìíë©´ê¸°ìí ë§íì§</title>
+<title> 발제가제일시러 | 발제만안하면기자할만하지</title>
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
-font-family: 'Malgun Gothic', 'ë§ì ê³ ë', AppleGothic, sans-serif;
+font-family: 'Malgun Gothic', '맑은 고딕', AppleGothic, sans-serif;
 background: #eef0f3;
 color: #1a1a1a;
 min-height: 100vh;
 }
 
-/* ââ í¤ë ââ */
+/* ── 헤더 ── */
 .header {
 background: #c0001e;
 color: white;
@@ -42,7 +42,7 @@ padding: 4px 12px;
 font-size: 12px;
 }
 
-/* ââ ë¤ë¹ê²ì´ì ââ */
+/* ── 네비게이션 ── */
 .nav {
 background: #1c1c1c;
 display: flex;
@@ -65,14 +65,14 @@ transition: all 0.15s;
 .nav-btn.active { color: #fff; border-bottom-color: #c0001e; }
 .nav-btn:hover:not(.active) { color: #ddd; background: rgba(255,255,255,0.05); }
 
-/* ââ ë³¸ë¬¸ ââ */
+/* ── 본문 ── */
 .main {
 max-width: 860px;
 margin: 0 auto;
 padding: 24px 16px 48px;
 }
 
-/* ââ ì¹´ë ââ */
+/* ── 카드 ── */
 .card {
 background: white;
 border-radius: 10px;
@@ -92,7 +92,7 @@ align-items: center;
 gap: 8px;
 }
 
-/* ââ í¼ ìì ââ */
+/* ── 폼 요소 ── */
 label.field-label {
 display: block;
 font-size: 13px;
@@ -119,7 +119,7 @@ border-color: #c0001e;
 background: #fff;
 }
 
-/* ââ ë²í¼ ââ */
+/* ── 버튼 ── */
 .btn {
 background: #c0001e;
 color: white;
@@ -150,7 +150,7 @@ transition: all 0.15s;
 }
 .btn-ghost:hover { background: #f0f0f0; }
 
-/* ââ íê·¸ ââ */
+/* ── 태그 ── */
 .tags-wrap { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
 .tag {
 display: inline-block;
@@ -167,7 +167,7 @@ color: #555;
 .tag:hover { background: #e8e8e8; }
 .tag.on { background: #c0001e; border-color: #c0001e; color: white; }
 
-/* ââ ì¸í¬ ë°ì¤ ââ */
+/* ── 인포 박스 ── */
 .info-box {
 background: #fff8f0;
 border-left: 4px solid #c0001e;
@@ -179,7 +179,7 @@ margin-bottom: 18px;
 line-height: 1.6;
 }
 
-/* ââ ë´ì¤ ë°°ì§ ââ */
+/* ── 뉴스 배지 ── */
 .news-badge {
 display: inline-flex;
 align-items: center;
@@ -195,7 +195,7 @@ margin-bottom: 12px;
 .news-badge.loaded { background: #f0fff4; border-color: #86c98e; color: #2d6a3f; }
 .news-badge.loading { background: #fff8e0; border-color: #e0c84a; color: #7a6010; }
 
-/* ââ ì¶ë ¥ ìì­ ââ */
+/* ── 출력 영역 ── */
 .output-box {
 background: #f7f8fa;
 border: 1px solid #e0e3e8;
@@ -212,7 +212,7 @@ position: relative;
 }
 .output-box.visible { display: block; }
 
-/* ë³µì¬ ë²í¼ */
+/* 복사 버튼 */
 .copy-btn {
 position: absolute;
 top: 10px;
@@ -228,7 +228,7 @@ color: #555;
 }
 .copy-btn:hover { background: #f0f0f0; }
 
-/* ââ ë¡ë© ì¤í¼ë ââ */
+/* ── 로딩 스피너 ── */
 @keyframes spin { to { transform: rotate(360deg); } }
 .spinner {
 display: inline-block;
@@ -241,7 +241,7 @@ animation: spin 0.7s linear infinite;
 flex-shrink: 0;
 }
 
-/* ââ ì¤íì¼ ê°ì´ë í­ ââ */
+/* ── 스타일 가이드 탭 ── */
 .guide-section { margin-bottom: 24px; }
 .guide-section h3 {
 font-size: 15px;
@@ -282,7 +282,7 @@ border-radius: 0 5px 5px 0;
 font-style: italic;
 }
 
-/* ââ ë°ìí ââ */
+/* ── 반응형 ── */
 @media (max-width: 600px) {
 .header { padding: 12px 16px; }
 .header-title { font-size: 17px; }
@@ -294,219 +294,219 @@ font-style: italic;
 </head>
 <body>
 
-<!-- ââââââââââââââ í¤ë ââââââââââââââ -->
+<!-- ══════════════ 헤더 ══════════════ -->
 <header class="header">
 <div class="header-left">
-<span class="header-logo">ë°ì </span>
+<span class="header-logo">발제</span>
 <div>
-<div class="header-title">ë°ì ê° íë¤ì´</div>
-<div class="header-sub">ì¤íì¼ ê¸°ì¬ ìì± ëì°ë¯¸</div>
+<div class="header-title">발제가 힘들어</div>
+<div class="header-sub">스타일 기사 작성 도우미</div>
 </div>
 </div>
-<span class="header-badge">ð¤ AI ë¸ë ì¸</span>
+<span class="header-badge">🤖 AI 브레인</span>
 </header>
 
-<!-- ââââââââââââââ ë¤ë¹ê²ì´ì ââââââââââââââ -->
+<!-- ══════════════ 네비게이션 ══════════════ -->
 <nav class="nav">
-<button class="nav-btn active" onclick="showTab('pitch', this)">ð ë°ì  ìì±</button>
-<button class="nav-btn" onclick="showTab('article', this)">âï¸ ê¸°ì¬ ì´ì</button>
-<button class="nav-btn" onclick="showTab('title', this)">ð° ì ëª© ë©ì´ì»¤</button>
-<button class="nav-btn" onclick="showTab('style', this)">ð§­ ë´ ì¤íì¼</button>
+<button class="nav-btn active" onclick="showTab('pitch', this)">📌 발제 생성</button>
+<button class="nav-btn" onclick="showTab('article', this)">✍️ 기사 초안</button>
+<button class="nav-btn" onclick="showTab('title', this)">📰 제목 메이커</button>
+<button class="nav-btn" onclick="showTab('style', this)">🧭 내 스타일</button>
 </nav>
 
-<!-- ââââââââââââââ ë³¸ë¬¸ ââââââââââââââ -->
+<!-- ══════════════ 본문 ══════════════ -->
 <main class="main">
 
-<!-- ââ TAB 1: ë°ì  ìì± ââ -->
+<!-- ── TAB 1: 발제 생성 ── -->
 <div id="tab-pitch">
 <div class="card">
-<div class="card-title">ð ë°ì  ìì±</div>
+<div class="card-title">📌 발제 생성</div>
 <div class="info-box">
-ê¸°ì¬ ìì´íì ë°êµ´í©ëë¤. í¤ìë ìì´ë ì¤ëì ë°ì ë¥¼ ë°ë¡ ìì±í  ì ììµëë¤.
+기사 아이템을 발굴합니다. 키워드 없이도 오늘의 발제를 바로 생성할 수 있습니다.
 </div>
 
 <div id="news-badge" class="news-badge loading">
-  <span class="spinner" style="width:11px;height:11px;border-width:1.5px;"></span> ì¤ëì ë´ì¤ ë¶ë¬ì¤ë ì¤...
+  <span class="spinner" style="width:11px;height:11px;border-width:1.5px;"></span> 오늘의 뉴스 불러오는 중...
 </div>
 
 <div class="field-wrap">
-<label class="field-label">ê´ì¬ í¤ìë ëë ì´ì <span style="color:#999;font-weight:normal;">(ìì¼ë©´ ë¹ìëì¸ì)</span></label>
-<input type="text" id="pitch-keyword" placeholder="ì: ë¯¸êµ­ ê´ì¸, ë¶ëì° PF, ìë ì¦ì, íìì¸...">
+<label class="field-label">관심 키워드 또는 이슈 <span style="color:#999;font-weight:normal;">(없으면 비워두세요)</span></label>
+<input type="text" id="pitch-keyword" placeholder="예: 미국 관세, 부동산 PF, 의대 증원, 탄소세...">
 </div>
 
 <div class="field-wrap">
-<label class="field-label">ë°êµ´ ë°©ì ì í <span style="color:#999;font-weight:normal;">(ë³µì ì í ê°ë¥)</span></label>
+<label class="field-label">발굴 방식 선택 <span style="color:#999;font-weight:normal;">(복수 선택 가능)</span></label>
 <div class="tags-wrap">
-<span class="tag" data-tag="compare" onclick="toggleTag(this)">ð êµ­ì  ë¹êµ</span>
-<span class="tag" data-tag="myth" onclick="toggleTag(this)">ð¥ ì¤ê°ë êµì </span>
-<span class="tag" data-tag="history" onclick="toggleTag(this)">ð ì­ì¬ ë§¥ë½</span>
-<span class="tag" data-tag="stat" onclick="toggleTag(this)">ð íµê³ ë¤ì§ê¸°</span>
-<span class="tag" data-tag="parallel" onclick="toggleTag(this)">ð ë³ë ¬ êµ¬ì¡°</span>
-<span class="tag" data-tag="thirdworld" onclick="toggleTag(this)">ð ì 3ì¸ê³ ìê°</span>
-<span class="tag" data-tag="korea-only" onclick="toggleTag(this)">ð°ð· íêµ­ë§ì ê²</span>
-<span class="tag" data-tag="structure" onclick="toggleTag(this)">ðï¸ êµ¬ì¡°ì  ë¹í</span>
+<span class="tag" data-tag="compare" onclick="toggleTag(this)">🌏 국제 비교</span>
+<span class="tag" data-tag="myth" onclick="toggleTag(this)">💥 오개념 교정</span>
+<span class="tag" data-tag="history" onclick="toggleTag(this)">📜 역사 맥락</span>
+<span class="tag" data-tag="stat" onclick="toggleTag(this)">📊 통계 뒤집기</span>
+<span class="tag" data-tag="parallel" onclick="toggleTag(this)">🔄 병렬 구조</span>
+<span class="tag" data-tag="thirdworld" onclick="toggleTag(this)">🌍 제3세계 시각</span>
+<span class="tag" data-tag="korea-only" onclick="toggleTag(this)">🇰🇷 한국만의 것</span>
+<span class="tag" data-tag="structure" onclick="toggleTag(this)">🏗️ 구조적 비판</span>
 </div>
 </div>
 
 <div class="field-wrap">
-<label class="field-label">ë°ì  ê°ì</label>
+<label class="field-label">발제 개수</label>
 <select id="pitch-count" style="width:auto;min-width:120px;">
-<option value="3">3ê°</option>
-<option value="5" selected>5ê°</option>
-<option value="7">7ê°</option>
+<option value="3">3개</option>
+<option value="5" selected>5개</option>
+<option value="7">7개</option>
 </select>
 </div>
 
-<button class="btn" id="pitch-btn" onclick="generatePitch()">ð ë°ì  ìì±íê¸°</button>
+<button class="btn" id="pitch-btn" onclick="generatePitch()">🔍 발제 생성하기</button>
 
 <div class="output-box" id="pitch-output">
-<button class="copy-btn" onclick="copyOutput('pitch-output')">ë³µì¬</button>
+<button class="copy-btn" onclick="copyOutput('pitch-output')">복사</button>
 </div>
 </div>
 </div>
 
-<!-- ââ TAB 2: ê¸°ì¬ ì´ì ââ -->
+<!-- ── TAB 2: 기사 초안 ── -->
 <div id="tab-article" style="display:none">
 <div class="card">
-<div class="card-title">âï¸ ê¸°ì¬ ì´ìì ìì±</div>
+<div class="card-title">✍️ 기사 초안을 작성</div>
 <div class="info-box">
-ë°ì ë íµì¬ ë´ì©ì ìë ¥íë©´ ê¸°ì¬ ì´ìì ìì±í©ëë¤. ë°ì§ê´ì  ì²« ë¬¸ì¥, êµ¬ì²´ì  ìì¹, ê°ë ¬í ë§ë¬´ë¦¬ê° í¹ì§ìëë¤.
+발제나 핵심 내용을 입력하면 기사 초안을 작성합니다. 반직관적 첫 문장, 구체적 수치, 강렬한 마무리가 특징입니다.
 </div>
 
 <div class="field-wrap">
-<label class="field-label">ë°ì  / íµì¬ ë´ì© <span style="color:#c0001e;">*</span></label>
-<textarea id="article-prompt" rows="4" placeholder="ì: íêµ­ì ì  ì¸ê³ìì ì ì¼íê² ì°ë ê¸°ë¥¼ ë²ë¦¬ê¸° ìí´ ëì ë´ë ëë¼ë¤. 1995ë ì¢ëì  ëì ì´í 26ëì§¸ êµ­ë¯¼ì´ ì°ë ê¸° ì²ë¦¬ë¹ë¥¼ ê°¹ì¶íë êµ¬ì¡°ê° ì§ìëê³  ìë¤..."></textarea>
+<label class="field-label">발제 / 핵심 내용 <span style="color:#c0001e;">*</span></label>
+<textarea id="article-prompt" rows="4" placeholder="예: 한국은 전 세계에서 유일하게 쓰레기를 버리기 위해 돈을 내는 나라다. 1995년 종량제 도입 이후 26년째 국민이 쓰레기 처리비를 갹출하는 구조가 지속되고 있다..."></textarea>
 </div>
 
 <div class="field-wrap">
-<label class="field-label">ì°¸ê³  ìë£ <span style="color:#999;font-weight:normal;">(íµê³, ê³µì, ê³¼ê±° ìì¹, ë¹êµ ëì ë± â ì í)</span></label>
-<textarea id="article-ref" rows="3" placeholder="ì: 2019ë ì°ë ê¸° ë´í¬ ìì°ë 12ìµ2000ë§ì¥ / ë´í¬ íë§¤ ìì 6792ìµì (íê²½ë¶, 2020ë 12ì) / ì¸ê³ ì¬íì©ë¥  1ì..."></textarea>
+<label class="field-label">참고 자료 <span style="color:#999;font-weight:normal;">(통계, 공시, 과거 수치, 비교 대상 등 — 선택)</span></label>
+<textarea id="article-ref" rows="3" placeholder="예: 2019년 쓰레기 봉투 생산량 12억2000만장 / 봉투 판매 수입 6792억원 (환경부, 2020년 12월) / 세계 재활용률 1위..."></textarea>
 </div>
 
 <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:16px;">
 <div>
-<label class="field-label">ê¸°ì¬ ê¸¸ì´</label>
+<label class="field-label">기사 길이</label>
 <select id="article-length" style="width:auto;min-width:140px;">
-<option value="short">ì§§ê² (500ì ë´ì¸)</option>
-<option value="medium" selected>ë³´íµ (800~1000ì)</option>
-<option value="long">ê¸¸ê² (1200~1500ì)</option>
+<option value="short">짧게 (500자 내외)</option>
+<option value="medium" selected>보통 (800~1000자)</option>
+<option value="long">길게 (1200~1500자)</option>
 </select>
 </div>
 <div>
-<label class="field-label">ê¸°ì¬ ì í</label>
+<label class="field-label">기사 유형</label>
 <select id="article-type" style="width:auto;min-width:150px;">
-<option value="column">ì¹¼ë¼Â·ìê° (íì¥ìì)</option>
-<option value="news" selected>ì¤í¸ë ì´í¸ ë´ì¤</option>
-<option value="analysis">ë¶ì ê¸°ì¬</option>
+<option value="column">칼럼·시각 (현장에서)</option>
+<option value="news" selected>스트레이트 뉴스</option>
+<option value="analysis">분석 기사</option>
 </select>
 </div>
 </div>
 
-<button class="btn" id="article-btn" onclick="generateArticle()">ð ê¸°ì¬ ì´ì ìì±</button>
+<button class="btn" id="article-btn" onclick="generateArticle()">📝 기사 초안 생성</button>
 
 <div class="output-box" id="article-output">
-<button class="copy-btn" onclick="copyOutput('article-output')">ë³µì¬</button>
+<button class="copy-btn" onclick="copyOutput('article-output')">복사</button>
 </div>
 </div>
 </div>
 
-<!-- ââ TAB 3: ì ëª© ë©ì´ì»¤ ââ -->
+<!-- ── TAB 3: 제목 메이커 ── -->
 <div id="tab-title" style="display:none">
 <div class="card">
-<div class="card-title">ð° ì ëª© ë©ì´ì»¤</div>
+<div class="card-title">📰 제목 메이커</div>
 <div class="info-box">
-ê¸°ì¬ ë³¸ë¬¸ì ë¶ì¬ë£ì¼ë©´ ì ëª© 5ê°ë¥¼ ì ìí©ëë¤. í´ë¦­ì ì ëíë ë³¸ë¬¸ ì¸ ì¬ì¤Â·ê³¼ì¥Â·ë¨ì  ííì ë°°ì í©ëë¤.
+기사 본문을 붙여넣으면 제목 5개를 제안합니다. 클릭을 유도하되 본문 외 사실·과장·단정 표현은 배제합니다.
 </div>
 
 <div class="field-wrap">
-<label class="field-label">ê¸°ì¬ ë³¸ë¬¸ <span style="color:#c0001e;">*</span></label>
-<textarea id="title-input" rows="8" placeholder="ê¸°ì¬ ë³¸ë¬¸ì ë¶ì¬ë£ì¼ì¸ì..."></textarea>
+<label class="field-label">기사 본문 <span style="color:#c0001e;">*</span></label>
+<textarea id="title-input" rows="8" placeholder="기사 본문을 붙여넣으세요..."></textarea>
 </div>
 
 <div class="field-wrap">
-<label class="field-label">ì ëª© ì¤íì¼ ì í</label>
+<label class="field-label">제목 스타일 선택</label>
 <div class="tags-wrap">
-<span class="tag on" data-tag2="question" onclick="toggleTag2(this)">â ìë¬¸í</span>
-<span class="tag on" data-tag2="shock" onclick="toggleTag2(this)">â¡ ì¶©ê²©Â·ë°ì </span>
-<span class="tag" data-tag2="stat" onclick="toggleTag2(this)">ð ìì¹ ê°ì¡°</span>
-<span class="tag" data-tag2="compare" onclick="toggleTag2(this)">âï¸ ë¹êµ ëì¡°</span>
-<span class="tag" data-tag2="irony" onclick="toggleTag2(this)">ð ì­ì¤Â·ìì´ë¬ë</span>
+<span class="tag on" data-tag2="question" onclick="toggleTag2(this)">❓ 의문형</span>
+<span class="tag on" data-tag2="shock" onclick="toggleTag2(this)">⚡ 충격·반전</span>
+<span class="tag" data-tag2="stat" onclick="toggleTag2(this)">📊 수치 강조</span>
+<span class="tag" data-tag2="compare" onclick="toggleTag2(this)">↔️ 비교 대조</span>
+<span class="tag" data-tag2="irony" onclick="toggleTag2(this)">🙃 역설·아이러니</span>
 </div>
 </div>
 
-<button class="btn" id="title-btn" onclick="generateTitles()">ð¡ ì ëª© 5ê° ìì±</button>
+<button class="btn" id="title-btn" onclick="generateTitles()">💡 제목 5개 생성</button>
 
 <div class="output-box" id="title-output">
-<button class="copy-btn" onclick="copyOutput('title-output')">ë³µì¬</button>
+<button class="copy-btn" onclick="copyOutput('title-output')">복사</button>
 </div>
 </div>
 </div>
 
-<!-- ââ TAB 4: ë´ ì¤íì¼ ââ -->
+<!-- ── TAB 4: 내 스타일 ── -->
 <div id="tab-style" style="display:none">
 <div class="card">
-<div class="card-title">ð§­ ê¸ì°ê¸° ìì¹</div>
+<div class="card-title">🧭 글쓰기 원칙</div>
 
 <div class="guide-section">
-<h3>ìì´í ë°êµ´ ë°©ì 6ê°ì§</h3>
+<h3>아이템 발굴 방식 6가지</h3>
 
 <div class="guide-item">
 <span class="guide-num">1</span>
-<div><strong>'íêµ­ë§ì ê²' ì°¾ê¸°</strong> â ì  ì¸ê³ìì íêµ­ë§ íë ê´íÂ·ì ëë¥¼ ì°¾ì "ì ë¤ë¥¸ ëë¼ë ì í ê¹?"ë¥¼ ë¬»ëë¤</div>
+<div><strong>'한국만의 것' 찾기</strong> — 전 세계에서 한국만 하는 관행·제도를 찾아 "왜 다른 나라는 안 할까?"를 묻는다</div>
 </div>
-<div class="example-box">"ì¸ê³ ê°êµ­ ê°ì´ë° íêµ­ì²ë¼ ì°ë ê¸° ë´í¬ë¥¼ ì¬ì ì°ê³  ë²ë¦¬ë ëë¼ë ìë¤" / "ëì ëë¬¸ì ì¦ì ê°ì¥ì ë¦ì¶ë ëë¼ë íêµ­ì´ ì ì¼í ê²ì¼ë¡ ìë¤"</div>
+<div class="example-box">"세계 각국 가운데 한국처럼 쓰레기 봉투를 사서 쓰고 버리는 나라는 없다" / "대입 때문에 증시 개장을 늦추는 나라는 한국이 유일한 것으로 안다"</div>
 
 <div class="guide-item">
 <span class="guide-num">2</span>
-<div><strong>ì¤ê°ë êµì </strong> â ëì¤ì´ ìëª» ìê³  ìë ììì íµê³Â·ì¬ì¤ë¡ ë¤ì§ëë¤</div>
+<div><strong>오개념 교정</strong> — 대중이 잘못 알고 있는 상식을 통계·사실로 뒤집는다</div>
 </div>
-<div class="example-box">"ìíë¦¬ì¹´ë ë¥ì§ ìë¤" (ëì´ë¡ë¹ 7ì ìµê³ ê¸°ì¨ 20.6ë) / "ì°ë¦¬ê° ë¶ë¥´ë ëìë¦¬ ëë¶ë¶ì ì¬ì¤ ë²ì²(ì¬ì²´ ì²­ìë¶)ë¤"</div>
+<div class="example-box">"아프리카는 덥지 않다" (나이로비 7월 최고기온 20.6도) / "우리가 부르는 독수리 대부분은 사실 벌처(사체 청소부)다"</div>
 
 <div class="guide-item">
 <span class="guide-num">3</span>
-<div><strong>ë¹êµÂ·ë³ë ¬ êµ¬ì¡°</strong> â ìëÂ·ì§ì­ì´ ë¤ë¥¸ ë ì¬ê±´ì ë³ë ¬ë¡ ëì ê³µíµ êµ¬ì¡°ë¥¼ ëë¬ë¸ë¤</div>
+<div><strong>비교·병렬 구조</strong> — 시대·지역이 다른 두 사건을 병렬로 놓아 공통 구조를 드러낸다</div>
 </div>
-<div class="example-box">íêµ­ ë² í¸ë¨ íë³(1964~73ë) â ë¶í ë¬ìì íë³ â "ì²´ì ë ë¬ë¼ë ìì¡´ ë¼ë¦¬ë ê°ë¤"</div>
+<div class="example-box">한국 베트남 파병(1964~73년) ↔ 북한 러시아 파병 — "체제는 달라도 생존 논리는 같다"</div>
 
 <div class="guide-item">
 <span class="guide-num">4</span>
-<div><strong>íµê³ë¡ ë¤ì§ê¸°</strong> â ììê³¼ ë°ëëë ì«ìë¥¼ ë°êµ´íë¤</div>
+<div><strong>통계로 뒤집기</strong> — 상식과 반대되는 숫자를 발굴한다</div>
 </div>
-<div class="example-box">ìì´í° ì§ì§ êµ¬í¸ê¸ 94ìµ ë¬ë¬ â íì§ ë¨ì²´ ì§ì  ì ë¬ ë¹ì¨ 0.6% / "100íì í ë¼"ì í¨ì </div>
+<div class="example-box">아이티 지진 구호금 94억 달러 → 현지 단체 직접 전달 비율 0.6% / "100훐에 한 끼"의 함정</div>
 
 <div class="guide-item">
 <span class="guide-num">5</span>
-<div><strong>ì­ì¬ ë§¥ë½ íì¬ ì ëª©</strong> â ê³¼ê±° ì¬ê±´ì íì¬ ë¬¸ì ì ë¼ëë¡ ì´ë¤</div>
+<div><strong>역사 맥락 현재 접목</strong> — 과거 사건을 현재 문제의 뼈대로 쓴다</div>
 </div>
-<div class="example-box">ë³¼ë¦¬ë¹ì-ì¹ ë  ííì ì ì(1880ëë) â íì¬ ë¨ë¯¸ ê°ë±ì ìì¸ / ì ëí ì¬ë§ â ì­ì¬ì  ìì§ì ìë¯¸</div>
+<div class="example-box">볼리비아-칠레 태평양 전쟁(1880년대) → 현재 남미 갈등의 원인 / 전두환 사망 → 역사적 응징의 의미</div>
 
 <div class="guide-item">
 <span class="guide-num">6</span>
-<div><strong>ì 3ì¸ê³Â·ì½ìêµ­ ëëì´</strong> â ê°ëêµ­ ë¼ë¦¬ê° ìë ì½ìêµ­ êµ¬ì¡°ë¡ êµ­ì  ì ì¹ë¥¼ ë¶ìíë¤</div>
+<div><strong>제3세계·약소국 눈높이</strong> — 강대국 논리가 아닌 약소국 구조로 국제 정치를 분석한다</div>
 </div>
-<div class="example-box">ë¤í-ì¸ë, ë¼ì¤ì¤-íêµ­, í¤íë¡ì¤-í°í¤-ê·¸ë¦¬ì¤ ê´ê³ â "ì´ì ëë¼ë¼ë¦¬ ì¬ì´ê° ì¢ì ìë ëë¬¼ë¤"</div>
-</div>
-
-<div class="guide-section">
-<h3>ê¸ì°ê¸° ì¤íì¼</h3>
-<div class="guide-item"><span class="guide-num">â¸</span><div><strong>ë°ì§ê´ì  ì²« ë¬¸ì¥</strong> â ëì ììì ê¹¨ë ì ì¸ì¼ë¡ ììíë¤</div></div>
-<div class="guide-item"><span class="guide-num">â¸</span><div><strong>ì§§ê³  ê°í ë¬¸ì¥ ì°ì ë°°ì¹</strong> â í¸í¡ì ì§§ê² ëì´ ë¦¬ë¬ì ë§ë ë¤</div></div>
-<div class="guide-item"><span class="guide-num">â¸</span><div><strong>êµ¬ì²´ì  ì°ëÂ·ì¸ëªÂ·ì«ì</strong> â ì¶ì ëì  í©í¸ë¥¼ ë£ëë¤</div></div>
-<div class="guide-item"><span class="guide-num">â¸</span><div><strong>ê°ì¸ ê²½íì ë¼ê±°ë¡</strong> â ì¼ë ì¬íë¦¬, ì¸ë ê°ì¬ëì°ë¯¸ ìë ë± ì§ì  ëª©ê²©ì ì¦ê±°ë¡ ì´ë¤</div></div>
-<div class="guide-item"><span class="guide-num">â¸</span><div><strong>ë§ì§ë§ ë¬¸ì¥ì´ íµì¬</strong> â ì¹¼ë¼ ê²°ë¯¸ì ë©ìì§ë¥¼ ìì¶íë¤ ("ì§(ç¥)ë ë¬´ì§(ç¡ç¥)ì ìê° ìíë¤")</div></div>
+<div class="example-box">네팔-인도, 라오스-태국, 키프로스-터키-그리스 관계 → "이웃 나라끼리 사이가 좋은 예는 드물다"</div>
 </div>
 
 <div class="guide-section">
-<h3>ê¸°ì¬ íì ê·ì¹</h3>
+<h3>글쓰기 스타일</h3>
+<div class="guide-item"><span class="guide-num">▸</span><div><strong>반직관적 첫 문장</strong> — 독자 예상을 깨는 선언으로 시작한다</div></div>
+<div class="guide-item"><span class="guide-num">▸</span><div><strong>짧고 강한 문장 연속 배치</strong> — 호흡을 짧게 끊어 리듬을 만든다</div></div>
+<div class="guide-item"><span class="guide-num">▸</span><div><strong>구체적 연도·인명·숫자</strong> — 추상 대신 팩트를 넣는다</div></div>
+<div class="guide-item"><span class="guide-num">▸</span><div><strong>개인 경험을 논거로</strong> — 케냐 사파리, 인도 가사도우미 소년 등 직접 목격을 증거로 쓴다</div></div>
+<div class="guide-item"><span class="guide-num">▸</span><div><strong>마지막 문장이 핵심</strong> — 칼럼 결미에 메시지를 응축한다 ("지(知)는 무지(無知)의 자각 상태다")</div></div>
+</div>
+
+<div class="guide-section">
+<h3>기사 형식 규칙</h3>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:13px;line-height:1.8;">
-<div>â ì²«ë¨¸ë¦¬: [í¤ë´ëê²½ì =íìí¬ ê¸°ì]</div>
-<div>â ì«ì: ì½¤ë§ ì ê±°, íê¸ ë¨ì í¼ì© (1ë§3000)</div>
-<div>â ì¶ê° ì·¨ì¬Â·íµê³Â·ì­ì¬ ë§¥ë½ 1ê° ì´ì ë°ì</div>
-<div>â ìë£¨ì â ì¤ë£¨ì</div>
-<div>â ì ë§Â·ì¶ì ì íì ì²ë¼ íí ê¸ì§</div>
-<div>â ë³´ëìë£ ë¨ì ì¬ìì± ê¸ì§</div>
-<div>â ë§í¬ë¤ì´ ìì ì¬ì© ê¸ì§</div>
-<div>â ããâ íë°ì´í ' ' ì¬ì©</div>
+<div>✅ 첫머리: [헤럴드경제=홍석희 기자]</div>
+<div>✅ 숫자: 콤마 제거, 한글 단위 혼용 (1만3000)</div>
+<div>✅ 추가 취재·통계·역사 맥락 1개 이상 반영</div>
+<div>✅ 솔루션 → 설루션</div>
+<div>❌ 전망·추정을 확정처럼 표현 금지</div>
+<div>❌ 보도자료 단순 재작성 금지</div>
+<div>❌ 마크다운 서식 사용 금지</div>
+<div>❌ 「」→ 홑따옴표 ' ' 사용</div>
 </div>
 </div>
 </div>
@@ -515,43 +515,43 @@ font-style: italic;
 </main>
 
 <script>
-// ââââââââââââââââââââââââââââââââââââââââ
-// AI íë¥´ìë
-// ââââââââââââââââââââââââââââââââââââââââ
-const HONG_PERSONA = `ë¹ì ì ê¸°ììëë¤. ë¤ìì ë¹ì ì ì¬ê³ ë°©ìê³¼ ê¸ì°ê¸° ì¤íì¼ ì ì²´ìëë¤.
+// ════════════════════════════════════════
+// AI 페르소나
+// ════════════════════════════════════════
+const HONG_PERSONA = `당신은 기자입니다. 다음은 당신의 사고방식과 글쓰기 스타일 전체입니다.
 
-[ìì´í ë°êµ´ 6ê°ì§ ìì¹]
-1. 'íêµ­ë§ì ê²' ì°¾ê¸° â "ì  ì¸ê³ìì ëíë¯¼êµ­ë§..." ê´íì ì°¾ì êµ¬ì¡°ì  ìì¸ì ë¬»ëë¤. ê²½ì Â·íì Â·ë¬¸íÂ·êµì¡Â·ìë£ ë± ëª¨ë  ë¶ì¼ìì íìíë¤.
-2. ì¤ê°ë êµì  â ëì¤ì´ ìëª» ìê³  ìë ììì íµê³Â·ì¬ì¤ë¡ ë¤ì§ëë¤. ê³¼íÂ·ê²½ì Â·ì­ì¬Â·ì§ë¦¬Â·ìí ë± ê´ë²ìí ë¶ì¼ìì íµëì ê¹¨ë í©í¸ë¥¼ ì°¾ëë¤.
-3. ë¹êµÂ·ë³ë ¬ êµ¬ì¡° â ìëÂ·ì§ì­ì´ ë¤ë¥¸ ë ì¬ê±´ìì ê³µíµ êµ¬ì¡°ë¥¼ ëë¬ë¸ë¤. ì­ì¬ì íì¬, ì ì§êµ­ê³¼ ê°ë°ëìêµ­, íêµ­ê³¼ í´ì¸ ì¬ë¡ë¥¼ ì°ê²°íë¤.
-4. íµê³ë¡ ë¤ì§ê¸° â ììê³¼ ë°ëëë ì«ìë¥¼ ë°êµ´íë¤. ê³µì íµê³, ì°êµ¬ ê²°ê³¼, íì  ë°ì´í°ìì ë°ì§ê´ì  ìì¹ë¥¼ ì°¾ëë¤.
-5. ì­ì¬ ë§¥ë½ íì¬ ì ëª© â ê³¼ê±° ì¬ê±´ì íì¬ ì´ìì ë¼ëë¡ ì´ë¤. ê·¼íëì¬, ëì , ìë¯¼ì§ ì­ì¬, ì°ìí ê³¼ì  ë±ì íì¬ ë¬¸ì ì ì°ê²°íë¤.
-6. ì 3ì¸ê³Â·ì½ìêµ­ ëëì´ â ê°ëêµ­ ë¼ë¦¬ ëì  ì½ìêµ­ êµ¬ì¡°ë¡ êµ­ì  ì ì¹ë¥¼ ë¶ìíë¤. ìììÂ·ìíë¦¬ì¹´Â·ì¤ë¨ë¯¸Â·ëì ë½ì ë¤ìí ì¬ë¡ë¥¼ íìíë¤.
+[아이템 발굴 6가지 원칙]
+1. '한국만의 것' 찾기 – "전 세계에서 대한민국만..." 관행을 찾아 구조적 원인을 묻는다. 경제·행정·문화·교육·의료 등 모든 분야에서 탐색한다.
+2. 오개념 교정 – 대중이 잘못 알고 있는 상식을 통계·사실로 뒤집는다. 과학·경제·역사·지리·의학 등 광범위한 분야에서 통념을 깨는 팩트를 찾는다.
+3. 비교·병렬 구조 – 시대·지역이 다른 두 사건에서 공통 구조를 드러낸다. 역사와 현재, 선진국과 개발도상국, 한국과 해외 사례를 연결한다.
+4. 통계로 뒤기 – 상식과 반대되는 숫자를 발굴한다. 공식 통계, 연구 결과, 행정 데이터에서 반직관적 수치를 찾는다.
+5. 역사 맥락 현재 접목 – 과거 사건을 현재 이슈의 뼈대로 쓴다. 근현대사, 냉전, 식민지 역사, 산업화 과정 등을 현재 문제와 연결한다.
+6. 제3세계·약소국 눈높이 – 강대국 논리 대신 약소국 구조로 국제 정치를 분석한다. 아시아·아프리카·중남미·동유럽의 다양한 사례를 탐색한다.
 
-[ê¸ì°ê¸° ì¤íì¼]
-- ì²« ë¬¸ì¥ì ë°ì§ê´ì  ì ì¸ì¼ë¡ ììíë¤. ëìì ììì ê¹¨ë í©í¸ë ì ì¸.
-- ì§§ê³  ê°í ë¬¸ì¥ì ì°ì ë°°ì¹í´ ë¦¬ë¬ì ë§ë ë¤.
-- êµ¬ì²´ì  ì°ë, ì¸ëª, ì«ìë¥¼ ë°ëì ë£ëë¤.
-- ê°ì¸ ê²½íì´ë ì§ì  ì·¨ì¬ë¥¼ ë¼ê±°ë¡ ì´ë¤.
-- ë§ì§ë§ ë¬¸ì¥ì íµì¬ ë©ìì§ë¥¼ ìì¶íë¤.
-- ë¨í¸íê³  ì§ì ì ì´ë¤. ë¶íìí ìì¬ì´êµ¬ ìì.
+[글쓰기 스타일]
+- 첫 문장은 반직관적 선언으로 시작한다. 독자의 예상을 깨는 팩트나 선언.
+- 짧고 강한 문장을 연속 배치해 리듬을 만든다.
+- 구체적 연도, 인명, 숫자를 반드시 넣는다.
+- 개인 경험이나 직접 취재를 논거로 쓴다.
+- 마지막 문장에 핵심 메시지를 응축한다.
+- 단호하고 직접적이다. 불필요한 수사어구 없음.
 
-[ê¸°ì¬ íì ê·ì¹]
-- ì²«ë¨¸ë¦¬: [í¤ë´ëê²½ì =íìí¬ ê¸°ì]
-- ì«ì ì½¤ë§ ì ê±°Â·íê¸ ë¨ì í¼ì© (1ë§3000, '1ë§3ì²' ê¸ì§)
-- ì ë§Â·ì¶ì ì íì ì²ë¼ ì°ì§ ìëë¤
-- ë³´ëìë£ ë¨ì ì¬ìì± ê¸ì§ â ì¶ê° ì·¨ì¬Â·ê³µìÂ·íµê³Â·ì­ì¬ ë§¥ë½Â·ìê³ ë¹êµ ì¤ 1ê° ì´ì ë°ì
-- ì ëª©: í´ë¦­ ì ëíë ë³¸ë¬¸ ì¸ ì¬ì¤Â·ê³¼ì¥Â·ë¨ì  íí ê¸ì§
-- ë§í¬ë¤ì´ ìì ìë ì ì ë ê¸°ì¬ì²´
-- ìë£¨ì â ì¤ë£¨ì (ê³ ì ëªì¬ í¬í¨ ì ì²«ë¨¸ë¦¬ íì)
-- ããâ íë°ì´í ' '
+[기사 형식 규칙]
+- 첫머리: [헤럴드경제=홍석희 기자]
+- 숫자 콤마 제거·한글 단위 혼용 (1만3000, '1만3천' 금지)
+- 전망·추정은 확정처럼 쓰지 않는다
+- 보도자료 단순 재작성 금지 – 추가 취재·공시·통계·역사 맥락·업계 비교 중 1개 이상 반영
+- 제목: 클릭 유도하되 본문 외 사실·과장·단정 표현 금지
+- 마크다운 서식 없는 정제된 기사체
+- 솔루션 → 설루션 (고유명사 포함 시 첫머리 표시)
+- 「」→ 홑따옴표 ' '
 
-[íµì¬ ìì¹]
-ë§¤ë² ìì±í  ëë§ë¤ ìì í ë¤ë¥¸ ì£¼ì Â·ì§ì­Â·ë¶ì¼Â·ìëë¥¼ ì ííë¤. ì´ì ì ì¸ê¸ë êµ­ê°Â·ì¬ê±´Â·íµê³ë¥¼ ë°ë³µíì§ ìëë¤. ë¤ìí ë¶ì¼(ê²½ì Â·ì¬íÂ·êµ­ì Â·ê³¼íÂ·ë¬¸íÂ·íê²½Â·ë³µì§ ë±)ë¥¼ ê³¨ê³ ë£¨ íìíë¤.`;
+[핵심 원칙]
+매번 생성할 때마다 완전히 다른 주제·지역·분야·시대를 선택한다. 이전에 언급된 국가·사건·통계를 반복하지 않는다. 다양한 분야(경제·사회·국제·과학·문화·환경·복지 등)를 골고루 탐색한다.`;
 
-// ââââââââââââââââââââââââââââââââââââââââ
-// ìí ê´ë¦¬
-// ââââââââââââââââââââââââââââââââââââââââ
+// ════════════════════════════════════════
+// 상태 관리
+// ════════════════════════════════════════
 const activeTags = new Set();
 const activeTags2 = new Set(['question', 'shock']);
 let cachedHeadlines = null;
@@ -568,23 +568,23 @@ function toggleTag2(el) {
   else { activeTags2.add(tag); el.classList.add('on'); }
 }
 
-// ââââââââââââââââââââââââââââââââââââââââ
-// ë ì§ ì í¸
-// ââââââââââââââââââââââââââââââââââââââââ
+// ════════════════════════════════════════
+// 날짜 유틸
+// ════════════════════════════════════════
 function getKoreanDate() {
   const d = new Date();
-  const days = ['ì¼', 'ì', 'í', 'ì', 'ëª©', 'ê¸', 'í '];
-  return `${d.getFullYear()}ë ${d.getMonth() + 1}ì ${d.getDate()}ì¼(${days[d.getDay()]})`;
+  const days = ['일', '월', '화', '수', '목', '금', '토'];
+  return `${d.getFullYear()}년 ${d.getMonth() + 1}월 ${d.getDate()}일(${days[d.getDay()]})`;
 }
 
-// ââââââââââââââââââââââââââââââââââââââââ
-// ë´ì¤ í¤ëë¼ì¸ fetch
-// ââââââââââââââââââââââââââââââââââââââââ
+// ════════════════════════════════════════
+// 뉴스 헤드라인 fetch
+// ════════════════════════════════════════
 async function fetchNewsHeadlines() {
   if (cachedHeadlines !== null) return cachedHeadlines;
   try {
     const res = await fetch('/api/rss');
-    if (!res.ok) throw new Error('RSS ìëµ ì¤ë¥');
+    if (!res.ok) throw new Error('RSS 응답 오류');
     const data = await res.json();
     cachedHeadlines = data.headlines || [];
     return cachedHeadlines;
@@ -594,27 +594,27 @@ async function fetchNewsHeadlines() {
   }
 }
 
-// íì´ì§ ë¡ë ì ë´ì¤ ë¯¸ë¦¬ fetch
+// 페이지 로드 시 뉴스 미리 fetch
 (async () => {
   const badge = document.getElementById('news-badge');
   try {
     const headlines = await fetchNewsHeadlines();
     if (headlines.length > 0) {
       badge.className = 'news-badge loaded';
-      badge.innerHTML = `â ì¤ë ë´ì¤ ${headlines.length}ê±´ ë¡ë ìë£`;
+      badge.innerHTML = `✅ 오늘 뉴스 ${headlines.length}건 로드 완료`;
     } else {
       badge.className = 'news-badge';
-      badge.innerHTML = `ð° ë´ì¤ ì°ë ìì´ ë°ì  ìì±`;
+      badge.innerHTML = `📰 뉴스 연동 없이 발제 생성`;
     }
   } catch {
     badge.className = 'news-badge';
-    badge.innerHTML = `ð° ë´ì¤ ì°ë ìì´ ë°ì  ìì±`;
+    badge.innerHTML = `📰 뉴스 연동 없이 발제 생성`;
   }
 })();
 
-// ââââââââââââââââââââââââââââââââââââââââ
-// í­ ì í
-// ââââââââââââââââââââââââââââââââââââââââ
+// ════════════════════════════════════════
+// 탭 전환
+// ════════════════════════════════════════
 function showTab(tab, btn) {
   document.querySelectorAll('[id^="tab-"]').forEach(el => el.style.display = 'none');
   document.querySelectorAll('.nav-btn').forEach(el => el.classList.remove('active'));
@@ -622,9 +622,9 @@ function showTab(tab, btn) {
   btn.classList.add('active');
 }
 
-// ââââââââââââââââââââââââââââââââââââââââ
-// ì¤í¸ë¦¬ë° API í¸ì¶
-// ââââââââââââââââââââââââââââââââââââââââ
+// ════════════════════════════════════════
+// 스트리밍 API 호출
+// ════════════════════════════════════════
 async function streamResponse(messages, systemPrompt, outputId, btnId) {
   const outputEl = document.getElementById(outputId);
   const btnEl = document.getElementById(btnId);
@@ -636,7 +636,7 @@ async function streamResponse(messages, systemPrompt, outputId, btnId) {
   const copyBtn = outputEl.querySelector('.copy-btn');
   outputEl.innerHTML = '';
   outputEl.appendChild(spinner);
-  outputEl.appendChild(document.createTextNode(' ìì± ì¤...'));
+  outputEl.appendChild(document.createTextNode(' 생성 중...'));
   if (copyBtn) outputEl.appendChild(copyBtn);
 
   btnEl.disabled = true;
@@ -697,115 +697,132 @@ async function streamResponse(messages, systemPrompt, outputId, btnId) {
     outputEl.innerHTML = '';
     if (copyBtn) outputEl.appendChild(copyBtn);
     outputEl.appendChild(document.createTextNode(
-      `â ï¸ ì¤ë¥ê° ë°ìíìµëë¤.\n\n${err.message}\n\n` +
-      `SETUP.mdì ì¤ì  ê°ì´ëë¥¼ íì¸íê±°ë, Vercel íê²½ë³ìì ANTHROPIC_API_KEYê° ì¬ë°ë¥´ê² ì¤ì ëëì§ íì¸íì¸ì.`
+      `⚠️ 오류가 발생했습니다.\n\n${err.message}\n\n` +
+      `SETUP.md의 설정 가이드를 확인하거나, Vercel 환경변수에 ANTHROPIC_API_KEY가 올바르게 설정됐는지 확인하세요.`
     ));
   } finally {
     btnEl.disabled = false;
   }
 }
 
-// ââââââââââââââââââââââââââââââââââââââââ
-// ë°ì  ìì±
-// ââââââââââââââââââââââââââââââââââââââââ
+// ════════════════════════════════════════
+// 발제 생성
+// ════════════════════════════════════════
 async function generatePitch() {
   const keyword = document.getElementById('pitch-keyword').value.trim();
   const count = document.getElementById('pitch-count').value;
 
   const tagLabelMap = {
-    compare: 'êµ­ì  ë¹êµ ê°ë',
-    myth: 'ì¤ê°ë êµì  ê°ë',
-    history: 'ì­ì¬ ë§¥ë½ ì ëª©',
-    stat: 'íµê³ ë¤ì§ê¸°',
-    parallel: 'ë³ë ¬ êµ¬ì¡° (ìëÂ·ì§ì­ ë¤ë¥¸ ë ì¬ê±´ ì°ê²°)',
-    thirdworld: 'ì 3ì¸ê³Â·ì½ìêµ­ ìê°',
-    'korea-only': 'íêµ­ë§ì ê² ì°¾ê¸°',
-    structure: 'êµ¬ì¡°ì  ë¹í',
+    compare: '국제 비교 각도',
+    myth: '오개념 교정 각도',
+    history: '역사 맥락 접목',
+    stat: '통계 뒤집기',
+    parallel: '병렬 구조 (시대·지역 다른 두 사건 연결)',
+    thirdworld: '제3세계·약소국 시각',
+    'korea-only': '한국만의 것 찾기',
+    structure: '구조적 비판',
   };
 
   const methodStr = activeTags.size > 0
-    ? `\nì í¸ ë°êµ´ ë°©ì: ${[...activeTags].map(t => tagLabelMap[t]).join(', ')}`
+    ? `\n선호 발굴 방식: ${[...activeTags].map(t => tagLabelMap[t]).join(', ')}`
     : '';
 
-  // ì¤ë ë´ì¤ í¤ëë¼ì¸ ê°ì ¸ì¤ê¸°
+  // 오늘 뉴스 헤드라인 가져오기
   const headlines = await fetchNewsHeadlines();
   const today = getKoreanDate();
 
   let newsContext = '';
   if (headlines.length > 0) {
-    newsContext = `\n\n[,¤ë(${today}) ì£¼ì ë´ì¤ í¤ëë¼ì¸ â ììì± ìë ë°ì  ê°ë íìì íì©í  ê²]\n` +
+    newsContext = `\n\n[오늘(${today}) 주요 뉴스 헤드라인 — 시의성 있는 발제 각도 탐색에 활용할 것]\n` +
       headlines.map((h, i) => `${i + 1}. ${h}`).join('\n');
   }
 
-  // ê³ ì  ìë: ë§¤ ìì²­ë§ë¤ ë¤ë¥¸ ê²°ê³¼ ì ë
+  // 고유 시드: 매 요청마다 다른 결과 유도
   const seed = Math.floor(Math.random() * 10000);
 
-  const pitchFormat = `ê° ë°ì ë ë°ëì ë¤ì íìì¼ë¡:\n\n[ë°ì  N]\nì ëª© íë³´: (í´ë¦­ ì ë, ê³¼ì¥ ìì´)\níµì¬ ê°ë: (ì ì´ ìê°ì´ ìë¡ì´ê°)\nì²« ë¬¸ì¥ ì ì: (ë°ì§ê´ì  ì ì¸)\nì¶ê° ì·¨ì¬ í¬ì¸í¸: (ì´ëì í©í¸ë¥¼ ë ìº ì ìë)`;
+  const pitchFormat = `각 발제는 반드시 다음 형식으로:\n\n[발제 N]\n제목 후보: (클릭 유도, 과장 없이)\n핵심 각도: (왜 이 시각이 새로운가)\n첫 문장 제안: (반직관적 선언)\n추가 취재 포인트: (어디서 팩트를 더 캘 수 있나)`;
 
   const prompt = keyword
-    ? `í¤ìë '${keyword}'+¥¼ ë°íì¼ë¡ ì¤ë(${today}) í¸ì§íì ê¸°ì¬ ë°ì  ${count}ê°ë¥¼ ìì±íì¸ì.${methodStr}${newsContext}\n\nìì²­ID: ${seed}\n\n${pitchFormat}`
-    : `ì¤ë(${today}) í¸ì§íì ê¸°ì¬ ë°ì  ${count}ê°ë¥¼ ìì±íì¸ì. ìë¡ ìì í ë¤ë¥¸ ë¶ì¼Â·ì§ì­Â·ì£¼ì ë¥¼ ì ííê³ , ê°ê° ë ì¹´ë¡­ê³  ëì°½ì ì¸ ê°ëë¡ ì ê·¼íì¸ì.${methodStr}${newsContext}\n\nìì²­ID: ${seed}\n\n${pitchFormat}`;
+    ? `키워드 '${keyword}'를 바탕으로 오늘(${today}) 편집회의 기사 발제 ${count}개를 생성하세요.${methodStr}${newsContext}\n\n요청ID: ${seed}\n\n${pitchFormat}`
+    : `오늘(${today}) 편집회의 기사 발제 ${count}개를 생성하세요. 서로 완전히 다른 분야·지역·주제를 선택하고, 각각 날카롭고 독창적인 각도로 접근하세요.${methodStr}${newsContext}\n\n요청ID: ${seed}\n\n${pitchFormat}`;
 
   streamResponse(
     [{ role: 'user', content: prompt }],
-    HONG_PERSONA + '\n\nì§ê¸ í¸ì§íììì ë°ì íâ¥;)${'¡zââ:âé:éé:ì¢;&a;(!;g¢; â:èg;&­;(ï;(';&`:¬ zãá:èg:ì';(';ef;!.;&¥;'m;(!;%ä;(';%b;e¢:ãf:­kz¬ 0­û «:¬m0­ûa­z¬á:éo:ì&:ìí{ef;)à:éâ;!.;&¥Ë	Ü]Ú[Ý]]	Ë	Ü]ÚXÂ
-NÂBËÈ8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥dËÈ:®,; «;-";%bËÈ8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d[Ý[ÛÙ[\]P\XÛJ
-HÂÛÛÝÛ\HØÝ[Y[Ù][[Y[RY
-	Ø\XÛK\Û\	ÊK[YK[J
-NÂY
-\Û\
-HÈ[\
-	úì';(':æ$:â¥;em{"ë:à­;&ª{'a;'¡zè){em;(ï;!.;&¥ÊNÈ]\ÈBÛÛÝYHØÝ[Y[Ù][[Y[RY
-	Ø\XÛK\YÊK[YK[J
-NÂÛÛÝ[ÝHØÝ[Y[Ù][[Y[RY
-	Ø\XÛK[[Ý	ÊK[YNÂÛÛÝ\HHØÝ[Y[Ù][[Y[RY
-	Ø\XÛK]\IÊK[YNÂÛÛÝ[ÝX\HÈÚÜ	ÍL;'¤:à­;&n	ËYY][N	ÎL;'¤	ËÛÎ	ÌLML;'¤	ÈNÂÛÛÝ\SX\HÂÛÛ[[	û.o:çï0­û"ç:¬ H;f%{"çH
-;f!;'©{%ä;!';"©;`à;'o
-IË]ÜÎ	û"©;b®:è";'m;b®:âm;"©;f%{"çIË[[\Ú\Î	úí¡;!'H:®,; «;f%{"çIËNÂÛÛÝ\Ù\\ÙÈH:âé;'c:à­;&ª{'/:èg:®,; «:éo;'¤{!,{em;(ï;!.;&¥ºì';('ûem{"ë:à­;&ªNÜÛ\X
-Â
-YÈ»,.:¬è;'¤:èã
-:ì&:äç;"ç;fg;&ªJNÜYX	ÉÊH
-Âºí¡:çâN	Û[ÝX\Û[Ý_W»'(;f%N	Ý\SX\Ý\W_XÂÝX[T\ÜÛÙJÞÈÛN	Ý\Ù\ËÛÛ[\Ù\\ÙÈWKÓ×ÔTÓÓH
-È	×»)à:®":®,; «:éo;)à{($H;'¤{!,{ejzââ:âé:ì&;)àz­ ;( H;,ªÈ:ë.;'©{'/:èg:ãá{'¤:éo;'¨{%a:àc:êl:éâ;)à:éâH:ë.;'©{%ä;em{"ë:êe;"ç;)à:éo;'d{-¥{ef;!.;&¥Ë	Ø\XÛK[Ý]]	Ë	Ø\XÛKXÂ
-NÂBËÈ8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥dËÈ;(':êªH:êe;'m;.éËÈ8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d8¥d[Ý[ÛÙ[\]U]\Ê
-HÂÛÛÝÙHHØÝ[Y[Ù][[Y[RY
-	Ý]KZ[]	ÊK[YK[J
-NÂY
-XÙJHÈ[\
-	ú®,; «:ìî:ë.;'a;+ ¥í´ì£¼ì¸ì.'); return; }
+    HONG_PERSONA + '\n\n지금 편집회의에서 발제하는 중입니다. 매번 완전히 새로운 주제와 각도로 발제하세요. 이전에 제안했던 국가·사건·통계를 반복하지 마세요.',
+    'pitch-output',
+    'pitch-btn'
+  );
+}
 
-  const styleLabelMap = {
-    question: 'ìë¬¸í',
-    shock: 'ì¶©ê²©Â·ë°ì ',
-    stat: 'ìì¹ ê°ì¡°',
-    compare: 'ë¹êµ ëì¡°',
-    irony: 'ì­ì¤Â·ìì´ë¬ë',
+// ════════════════════════════════════════
+// 기사 초안
+// ════════════════════════════════════════
+function generateArticle() {
+  const prompt = document.getElementById('article-prompt').value.trim();
+  if (!prompt) { alert('발제 또는 핵심 내용을 입력해주세요.'); return; }
+
+  const ref = document.getElementById('article-ref').value.trim();
+  const length = document.getElementById('article-length').value;
+  const type = document.getElementById('article-type').value;
+
+  const lengthMap = { short: '500자 내외', medium: '800~1000자', long: '1200~1500자' };
+  const typeMap = {
+    column: '칼럼·시각 형식 (현장에서 스타일)',
+    news: '스트레이트 뉴스 형식',
+    analysis: '분석 기사 형식',
   };
 
-  const styleStr = activeTags2.size > 0
-    ? `\nì í¸ ì¤íì¼: ${[...activeTags2].map(t => styleLabelMap[t]).join(', ')}`
-    : '';
-
-  const userMsg = `ë¤ì ê¸°ì¬ ë³¸ë¬¸ì ë§ë ì ëª© 5ê°ë¥¼ ì ìí´ì£¼ì¸ì.\n\nê·ì¹:\n- í´ë¦­ì ì ëíë ë³¸ë¬¸ì ìë ì¬ì¤ì´ë ê³¼ì¥ ê¸ì§\n- ì ë§Â·ì¶ì ì íì ì²ë¼ íí ê¸ì§\n- ë¨ì  íí ê¸ì§\n- ê¸°ì¬ ì ëª© ì¤íì¼${styleStr}\n\nê° ì ëª© ìì ë²í¸ì í ì¤ ì í ì´ì ë¥¼ ë¬ìì£¼ì¸ì.\n\nê¸°ì¬ ë³¸ë¬¸:\n${body}`;
+  const userMsg = `다음 내용으로 기사를 작성해주세요.\n\n발제/핵심 내용:\n${prompt}` +
+    (ref ? `\n\n참고 자료 (반드시 활용):\n${ref}` : '') +
+    `\n\n분량: ${lengthMap[length]}\n유형: ${typeMap[type]}`;
 
   streamResponse(
     [{ role: 'user', content: userMsg }],
-    HONG_PERSONA + '\n\nì§ê¸ ê¸°ì¬ ì ëª©ì ì ìíë í¸ì§ììëë¤. ì ëª©ì ë§ëì¸ì.',
+    HONG_PERSONA + '\n\n지금 기사를 직접 작성합니다. 반직관적 첫 문장으로 독자를 잡아끌며, 마지막 문장에 핵심 메시지를 응축하세요.',
+    'article-output',
+    'article-btn'
+  );
+}
+
+// ════════════════════════════════════════
+// 제목 메이커
+// ════════════════════════════════════════
+function generateTitles() {
+  const body = document.getElementById('title-input').value.trim();
+  if (!body) { alert('기사 본문을 입력해주세요.'); return; }
+
+  const styleLabelMap = {
+    question: '의문형',
+    shock: '충격·반전',
+    stat: '수치 강조',
+    compare: '비교 대조',
+    irony: '역설·아이러니',
+  };
+
+  const styleStr = activeTags2.size > 0
+    ? `\n선호 스타일: ${[...activeTags2].map(t => styleLabelMap[t]).join(', ')}`
+    : '';
+
+  const userMsg = `다음 기사 본문에 맞는 제목 5개를 제안해주세요.\n\n규칙:\n- 클릭을 유도하되 본문에 없는 사실이나 과장 금지\n- 전망·추정을 확정처럼 표현 금지\n- 단정 표현 금지\n- 기사 제목 스타일${styleStr}\n\n각 제목 앞에 번호와 한 줄 선택 이유를 달아주세요.\n\n기사 본문:\n${body}`;
+
+  streamResponse(
+    [{ role: 'user', content: userMsg }],
+    HONG_PERSONA + '\n\n지금 기사 제목을 제안하는 편집자입니다. 제목을 만드세요.',
     'title-output',
     'title-btn'
   );
 }
 
-// ââââââââââââââââââââââââââââââââââââââââ
-// ë³µì¬
-// ââââââââââââââââââââââââââââââââââââââââ
+// ════════════════════════════════════════
+// 복사
+// ════════════════════════════════════════
 function copyOutput(id) {
   const el = document.getElementById(id);
-  const text = el.textContent.replace('ë³µì¬', '').trim();
+  const text = el.textContent.replace('복사', '').trim();
   navigator.clipboard.writeText(text).then(() => {
     const btn = el.querySelector('.copy-btn');
     const orig = btn.textContent;
-    btn.textContent = 'â ë³µì¬ë¨';
+    btn.textContent = '✅ 복사됨';
     setTimeout(() => { btn.textContent = orig; }, 1500);
   });
 }
