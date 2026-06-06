@@ -10,7 +10,7 @@
 
 | 역할 | 사이트 | 설명 |
 |------|--------|------|
-| AI 엔진 | https://console.anthropic.com | 홍석희 AI 기사 생성의 핵심 |
+| AI 엔진 | https://console.anthropic.com | AI 기사 생성의 핵심 |
 | 코드 저장소 | https://github.com | 사이트 파일을 보관하는 곳 |
 | 웹 호스팅 | https://vercel.com | 인터넷에 사이트를 올려주는 곳 |
 
