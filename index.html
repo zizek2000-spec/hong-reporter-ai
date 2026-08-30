@@ -698,7 +698,7 @@ async function streamResponse(messages, systemPrompt, outputId, btnId) {
     if (copyBtn) outputEl.appendChild(copyBtn);
     outputEl.appendChild(document.createTextNode(
       `⚠️ 오류가 발생했습니다.\n\n${err.message}\n\n` +
-      `SETUP.md의 설정 가이드를 확인하거나, Vercel 환경변수에 ANTHROPIC_API_KEY가 올바르게 설정됐는지 확인하세요.`
+      `SETUP.md의 설정 가이드를 확인하거나, Vercel 환경변수에 OPENAI_API_KEY가 올바르게 설정됐는지 확인하세요.`
     ));
   } finally {
     btnEl.disabled = false;
