@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title> 발제가제일시러 | 발제만안하면기자할만하지</title>
+<title>홍 리포터 | 오늘의 뉴스와 AI 기자실</title>
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
@@ -12,6 +12,40 @@ background: #eef0f3;
 color: #1a1a1a;
 min-height: 100vh;
 }
+
+/* 뉴스룸 레이어 */
+.newsroom { max-width: 1180px; margin: 0 auto; padding: 0 18px 48px; }
+.news-masthead { background: #fff; border-bottom: 3px solid #b5122a; padding: 20px 0 14px; text-align: center; }
+.news-masthead h1 { font-family: Georgia, 'Noto Serif KR', serif; font-size: clamp(34px, 6vw, 62px); letter-spacing: .14em; color:#171717; }
+.news-masthead p { color:#777; font-size:12px; margin-top:6px; letter-spacing:.12em; }
+.news-topline { display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #e6e6e6; padding:10px 0; color:#777; font-size:12px; }
+.news-topline strong { color:#b5122a; }
+.news-nav { display:flex; gap:24px; overflow-x:auto; border-bottom:1px solid #222; white-space:nowrap; }
+.news-nav button { border:0; background:none; padding:13px 0; font:600 14px inherit; cursor:pointer; color:#333; }
+.news-nav button:hover, .news-nav button.on { color:#b5122a; }
+.news-search { display:flex; gap:8px; margin:20px 0; }
+.news-search input { flex:1; border:0; border-bottom:2px solid #222; border-radius:0; background:#fff; padding:12px 4px; }
+.news-search button { border:0; background:#222; color:white; padding:0 18px; cursor:pointer; }
+.news-grid { display:grid; grid-template-columns: 1.05fr 1.7fr 1fr; gap:22px; border-top:1px solid #222; padding-top:22px; }
+.lead-card, .side-card, .latest-card { background:#fff; }
+.lead-card { grid-row:span 2; }
+.lead-card h2 { font-family: Georgia, 'Noto Serif KR', serif; font-size:clamp(25px,3vw,42px); line-height:1.2; margin:14px 0 8px; }
+.lead-card p, .side-card p { color:#6b6b6b; font-size:14px; line-height:1.65; }
+.news-kicker { color:#b5122a; font-size:12px; font-weight:bold; letter-spacing:.08em; }
+.side-card { border-bottom:1px solid #ddd; padding-bottom:16px; margin-bottom:16px; }
+.side-card h3 { font-size:19px; line-height:1.35; margin:6px 0; }
+.latest-card { border-left:1px solid #e5e5e5; padding-left:20px; }
+.latest-card h3 { font-size:17px; border-bottom:2px solid #222; padding-bottom:10px; margin-bottom:4px; }
+.latest-item { padding:12px 0; border-bottom:1px solid #eee; cursor:pointer; }
+.latest-item:hover h4 { color:#b5122a; }
+.latest-item h4 { font-size:15px; line-height:1.4; }
+.latest-item small { color:#999; font-size:11px; }
+.news-empty { grid-column:1/-1; padding:35px; text-align:center; background:#fff; color:#777; }
+.main > [id^="tab-"]:not(#tab-news), .main > .editor-bridge { display:none; }
+.editor-bridge { max-width:1180px; margin:0 auto; padding:18px; }
+.editor-bridge .btn { margin-right:8px; }
+@media (max-width: 850px) { .news-grid { grid-template-columns:1fr 1fr; } .lead-card { grid-row:auto; } .latest-card { grid-column:1/-1; border-left:0; padding-left:0; } }
+@media (max-width: 560px) { .news-grid { grid-template-columns:1fr; } .news-topline { align-items:flex-start; gap:8px; flex-direction:column; } }
 
 /* ── 헤더 ── */
 .header {
@@ -303,11 +337,12 @@ font-style: italic;
 <div class="header-sub">스타일 기사 작성 도우미</div>
 </div>
 </div>
-<span class="header-badge">🤖 AI 브레인</span>
+<span class="header-badge">🤖 AI 기자실</span>
 </header>
 
 <!-- ══════════════ 네비게이션 ══════════════ -->
 <nav class="nav">
+<button class="nav-btn active" onclick="showTab('news', this)">📰 뉴스룸</button>
 <button class="nav-btn active" onclick="showTab('pitch', this)">📌 발제 생성</button>
 <button class="nav-btn" onclick="showTab('article', this)">✍️ 기사 초안</button>
 <button class="nav-btn" onclick="showTab('title', this)">📰 제목 메이커</button>
@@ -316,6 +351,19 @@ font-style: italic;
 
 <!-- ══════════════ 본문 ══════════════ -->
 <main class="main">
+
+<!-- ── TAB 0: 뉴스룸 ── -->
+<div id="tab-news" class="newsroom">
+  <div class="news-topline"><span id="news-date"></span><span><strong>홍 리포터</strong> · 사실을 모아 맥락을 만듭니다</span></div>
+  <div class="news-masthead"><h1>洪 리포터</h1><p>오늘의 뉴스 · 현장의 목소리 · AI 기자실</p></div>
+  <div class="news-nav" id="news-categories">
+    <button class="on" data-category="전체">전체</button><button data-category="정치">정치</button><button data-category="경제">경제</button><button data-category="사회">사회</button><button data-category="국제">국제</button><button data-category="문화">문화</button><button data-category="스포츠">스포츠</button><button data-category="AI">AI·테크</button>
+  </div>
+  <form class="news-search" id="news-search"><input id="news-query" type="search" placeholder="뉴스 검색어를 입력하세요" aria-label="뉴스 검색어"><button type="submit">검색</button></form>
+  <section class="news-grid" id="news-grid" aria-live="polite"><div class="news-empty">오늘의 뉴스를 불러오는 중입니다…</div></section>
+</div>
+
+<div class="editor-bridge"><button class="btn" onclick="showTab('pitch', document.querySelector('.nav-btn:nth-child(2)'))">📌 AI 기자실 열기</button><span style="font-size:13px;color:#777">발제·기사 초안·제목 메이커는 기존 기능 그대로 사용할 수 있습니다.</span></div>
 
 <!-- ── TAB 1: 발제 생성 ── -->
 <div id="tab-pitch">
@@ -826,6 +874,48 @@ function copyOutput(id) {
     setTimeout(() => { btn.textContent = orig; }, 1500);
   });
 }
+
+// ════════════════════════════════════════
+// 홍 리포터 뉴스룸
+// ════════════════════════════════════════
+const newsroomState = { items: [], category: '전체', query: '' };
+function escapeNews(value) {
+  return String(value || '').replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
+}
+function newsCategory(title) {
+  const t = title || '';
+  if (/주식|증시|금리|기업|경제|부동산|고용|시장/.test(t)) return '경제';
+  if (/축구|야구|골프|스포츠|선수/.test(t)) return '스포츠';
+  if (/영화|음악|공연|문화|배우|방송/.test(t)) return '문화';
+  if (/미국|중국|일본|유럽|국제|트럼프|외교/.test(t)) return '국제';
+  if (/AI|인공지능|반도체|과학|기술|데이터/.test(t)) return 'AI';
+  if (/사건|교육|노동|환경|복지|서울|경기/.test(t)) return '사회';
+  return '정치';
+}
+function renderNews() {
+  const grid = document.getElementById('news-grid');
+  const filtered = newsroomState.items.filter(item => {
+    const hitCategory = newsroomState.category === '전체' || item.category === newsroomState.category;
+    const hitQuery = !newsroomState.query || item.title.toLowerCase().includes(newsroomState.query.toLowerCase());
+    return hitCategory && hitQuery;
+  });
+  if (!filtered.length) { grid.innerHTML = '<div class="news-empty">조건에 맞는 뉴스가 없습니다. 검색어를 바꿔보세요.</div>'; return; }
+  const lead = filtered[0], side = filtered.slice(1, 4), latest = filtered.slice(4, 12);
+  grid.innerHTML = `<article class="lead-card"><span class="news-kicker">${escapeNews(lead.category)} · 오늘의 헤드라인</span><h2>${escapeNews(lead.title)}</h2><p>${escapeNews(lead.description || '홍 리포터가 주요 뉴스의 흐름을 정리했습니다.')}</p></article><div>${side.map(item => `<article class="side-card"><span class="news-kicker">${escapeNews(item.category)}</span><h3>${escapeNews(item.title)}</h3><p>${escapeNews(item.description || '')}</p></article>`).join('')}</div><aside class="latest-card"><h3>최신 뉴스</h3>${latest.map(item => `<div class="latest-item"><small>${escapeNews(item.category)}</small><h4>${escapeNews(item.title)}</h4></div>`).join('')}</aside>`;
+}
+async function loadNewsroom() {
+  document.getElementById('news-date').textContent = getKoreanDate();
+  try {
+    const response = await fetch('/api/rss');
+    const data = await response.json();
+    newsroomState.items = (data.items || data.headlines || []).map(item => typeof item === 'string' ? { title:item, category:newsCategory(item) } : ({...item, category:item.category || newsCategory(item.title)}));
+    renderNews();
+  } catch { document.getElementById('news-grid').innerHTML = '<div class="news-empty">뉴스 연결이 잠시 지연되고 있습니다.</div>'; }
+}
+document.getElementById('news-search')?.addEventListener('submit', event => { event.preventDefault(); newsroomState.query = document.getElementById('news-query').value.trim(); renderNews(); });
+document.querySelectorAll('#news-categories button').forEach(button => button.addEventListener('click', () => { document.querySelectorAll('#news-categories button').forEach(b => b.classList.remove('on')); button.classList.add('on'); newsroomState.category = button.dataset.category; renderNews(); }));
+loadNewsroom();
+showTab('news', document.querySelector('.nav-btn'));
 </script>
 </body>
 </html>
